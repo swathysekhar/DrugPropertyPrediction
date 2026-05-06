@@ -183,7 +183,7 @@ def main(data_name,options):
                 sequence_targets = graph_data_batch.y
 
 
-                output= fusion_model(graph_data_batch, sequence_inputs,fg)
+                output, attn_weights = fusion_model(graph_data_batch, sequence_inputs,fg)
                 prob = torch.sigmoid(output)
                 binary_predictions = (prob >= 0.5).float()#......................
                 #binary_predictions = (output >= 0.5).float()
