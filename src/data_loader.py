@@ -107,7 +107,7 @@ def load_data_long(dataset, device):
                 i += 1
             smiles_seq.append(node2index[this_str])
             if this_str in graph_nodes and this_str == mole_dict[mol.GetAtoms()[gr_num].GetAtomicNum()]:
-                map[gr_num] = se_num
+                atom_to_seq_map[gr_num] = se_num
                 gr_num += 1
             feature[se_num, node2index[this_str]] = 1
             se_num += 1
