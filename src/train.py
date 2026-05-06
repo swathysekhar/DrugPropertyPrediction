@@ -116,7 +116,7 @@ def main(data_name,options):
                 optimizer.zero_grad()
 
                 # Forward pass
-                output= fusion_model(graph_data_batch, sequence_inputs,fg)
+                output, attn_weights = fusion_model(graph_data_batch, sequence_inputs,fg)
 
                 # Compute binary predictions
                 prob = torch.sigmoid(output)

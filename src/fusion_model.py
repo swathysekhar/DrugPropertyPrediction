@@ -106,7 +106,11 @@ class FusionModel(nn.Module):
         sequence_inputs,
         fg
     ):
+        device = next(self.parameters()).device
 
+        graph_data = graph_data.to(device)
+        sequence_inputs = sequence_inputs.to(device)
+        fg = fg.to(device)
         graph_emb = self.graph_model(graph_data)
 
         smiles_emb = self.sequence_model(sequence_inputs)
